@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1">
+	    <link href="C:\Users\Test\OneDrive\Documents\My-God's-Path-On-Earth\mycarismyreflection\mycarismyreflection\src\main\resources\static\css\bootstrap-4.3.1-dist\css\bootstrap.min.css"
+		th:href="@{/css/bootstrap-4.3.1-dist/css/bootstrap.min.css}" rel = "stylesheet"></link>
+	    <link href="C:\Users\Test\OneDrive\Documents\My-God's-Path-On-Earth\mycarismyreflection\mycarismyreflection\src\main\resources\static\css\style.css"
+		rel="stylesheet" th:href="@{/css/style.css}"></link>
+        <title>Contacts</title>
+    </head>
+    <body>
+	<div class = "container-fluid">
+        <!--The on hover css property i can't use, reason being i don't know how.-->
+        <div class = "row">
+			<div class = "col-md-12">
+	             <ul id = "Header_Items">		
+	                <li class = "Header_Item"><a href = "index.html" id="active_page" th:href = "@{/index}" class = "Header_Link">Home</a></li>
+	             	<li class = "Header_Item"><a href = "Payments.html" th:href = "@{/payments}" class = "Header_Link">Payments</a></li>				
+		            <li class = "Header_Item"><a href = "Testimonials.html" id="testimonials" th:href = "@{/testimonials}" class = "Header_Link">View Previous Work</a></li>
+		            <li class = "Header_Item"><a href = "#" th:href = "@{/contact}" class = "Header_Link">Contacts Us</a></li>
+		            <li class = "Header_Item"><a href = "www.myhomeismyreflection.co.za" class = "Header_Link">Home Services</a></li>
+	            </ul>
+			</div>
+       </div>
+       <div class = "row mt-3">
+                <div class = "col-md-12">
+                    <!-- Google map needed for Mayville Primary School, Cator Crest Library or CAO. -->
+                    <iframe 
+                        src = "https://www.google.com/maps/embed?pb=
+                        !1m18!1m12!1m3!1d5819.418691603769!2d30.9722138457359
+                        9!3d-29.857148101567955!2m3!1f0!2f0!3f0!3m2!1i1024!2i7
+                        68!4f13.1!3m3!1m2!1s0x0%3A0xaf445154466b1a73!2sCato+Crest
+                        +Community+Hall!5e0!3m2!1sen!2sza!4v1565602664873!5m2!1sen!
+                        2sza"  th:src="@{/https://www.google.com/maps/embed?pb=
+                        !1m18!1m12!1m3!1d5819.418691603769!2d30.9722138457359
+                        9!3d-29.857148101567955!2m3!1f0!2f0!3f0!3m2!1i1024!2i7
+                        68!4f13.1!3m3!1m2!1s0x0%3A0xaf445154466b1a73!2sCato+Crest
+                        +Community+Hall!5e0!3m2!1sen!2sza!4v1565602664873!5m2!1sen!
+                        2sza}" style="border:0;" 
+                        width = "100%" height = "400">
+                    </iframe>
+                </div>
+            </div>
+            <div class = "row mt-3">
+                <div class = "col-md-4">	
+                    <br/>
+                    <div class = "Location_Contact">
+                        <address>
+                        	<h5>Mayville Cato Crest 6257 Ashwell Road 
+                            Kwa Zulu Natal,Durban 4091  
+                            South Africa</h5>   
+                        </address>
+                       <h5>			
+                            Email : manikhweschool@gmail.com<br/>
+                            Phone Number : 0672781430
+                        </h5>
+                        <h5>			
+                            Close To The Hall On The Right.
+                        </h5>
+                    </div>
+                </div>
+                <div class = "col-md-4">
+                    <br/>
+                    <iframe th:src="@{images/Cato Crest Hall.jpg}" 
+                    id = "Goku_Frame" width = "100%" height = "100%">
+                    </iframe>
+                </div>
+                <div class = "col-md-4">
+                    <br/>
+                    <h5>
+                        I mean honestly, why bother going to a 
+                        car wash that will keep you waiting while 
+                        other folks are getting their cars cleaned? 
+                        While you can send us a request to wash your 
+                        car(s) where ever, whenever you want us to.
+                        Again it is as simple as clicking a button. 
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link href="C:\Users\Test\OneDrive\Documents\My-God's-Path-On-Earth\mycarismyreflection\mycarismyreflection\src\main\resources\static\css\bootstrap-4.3.1-dist\css\bootstrap.min.css"
+		th:href="@{/css/bootstrap-4.3.1-dist/css/bootstrap.min.css}" rel = "stylesheet"></link>
+		<link href="C:\Users\Test\OneDrive\Documents\My-God's-Path-On-Earth\mycarismyreflection\mycarismyreflection\src\main\resources\static\css\index.css"
+		rel="stylesheet" th:href="@{/css/index.css}"></link>
+		<link href="C:\Users\Test\OneDrive\Documents\My-God's-Path-On-Earth\mycarismyreflection\mycarismyreflection\src\main\resources\static\js\jquery-ui-1.12.1\jquery-ui.css"
+		rel="stylesheet" th:href="@{/css/jquery-ui-1.12.1/jquery-ui.css}">
+		<title>Wash My Car Request Form</title>
+	</head>
+	<body>
+		<div class="container-fluid" style="color:white;">
+			<div class="row">
+				<div class = "col-md-12">
+		             <ul id = "Header_Items">
+		             	<li class = "Header_Item"><a href = "#" id="active_page" th:href = "@{/index}" class = "Header_Link">Home</a></li>
+		             	<li class = "Header_Item"><a href = "Payments.html" th:href = "@{/payments}" class = "Header_Link">Payments</a></li>				
+			            <li class = "Header_Item"><a href = "Testimonials.html" id="testimonials" th:href = "@{/testimonials}" class = "Header_Link">View Previous Work</a></li>
+			            <li class = "Header_Item"><a href = "Contact.html" th:href = "@{/contact}" class = "Header_Link">Contacts Us</a></li>
+			            <li class = "Header_Item"><a href = "www.myhomeismyreflection.co.za" class = "Header_Link">Home Services</a></li>
+		            </ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-10 offset-md-2 col-sm-12 mt-3">
+					<blockquote>
+						<h3 style="color:blue">Pick A Once Off Or Recurring Deal So We Can Come Over To Wash Your Car(s).</h3>
+					</blockquote>
+				</div>
+			</div>
+			<fieldset>
+				<form th:action="@{/index}" th:object="${reqeust}" method="post">
+					<div class="row">
+						<div th:if="${requestAddedOnDatabase==false}" class="col-md-7 offset-md-4 col-sm-9 offset-sm-2" id="Incorrect_Reqeust_Div">
+							<h3 th:text="|Try Again : ${status}|" style="color:red">Try Again. </h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-1 offset-md-4 col-sm-2 offset-sm-2">
+							<label for="clientname"><strong>Name </strong></label>
+						</div>
+						<div class="col-md-7 col-sm-8">
+							<input type="text" th:field="*{session.client.clientName}" name="clientname" placeholder="Client Name"  required ="required"></input>
+						</div>
+						<div class="col-md-1 offset-md-4 col-sm-2 offset-sm-2">
+							<label for="clientsurname"><strong>Surname </strong></label>	
+						</div>
+						<div class="col-md-6 col-sm-8">
+							<input type="text" th:field="*{session.client.clientSurname}" name="clientsurname" placeholder="Client Surname"  required ="required"></input>
+						</div>
+						<div class="col-md-1 offset-md-4 col-sm-2 offset-sm-2">
+							<label for="clientphonenumber"><strong>Cell No </strong></label>
+						</div>
+						<div class="col-md-7 col-sm-8">
+							<input type="text" th:field="*{session.client.clientPhoneNumber}" name="clientphonenumber" placeholder="Client Phone Number"  required ="required"></input>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2 offset-md-4 col-sm-8 offset-sm-2 mr-0">
+							<div>
+								<p><strong>Once Off Deal Date: </strong><input type="date" 
+								th:field="*{session.sessionDate}" 
+								id="datepicker" onchange=""  required ="required">
+								</p>
+							</div>
+						</div>
+						<div class="col-md-2 col-sm-8 offset-sm-2 mx-0">
+							<p>
+								<strong>Once Off Deal Time:</strong>
+								<input type="time" th:field="*{session.sessionTime}" 
+								id="timepicker" onchange=""  required ="required">
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2 offset-md-4 col-sm-5 offset-sm-2">
+							<p><strong>No Of Cars: </strong></p>
+						</div>
+						<div class="col-md-2 col-sm-5">
+							<p>
+								<select name="Cars" th:field="*{session.numberOfCars}">
+									<option value="1-car">1 Car</option>
+									<option value="2-cars">2 Cars</option>
+									<option value="3-cars">3 Cars</option>
+									<option value="4-cars">4 Cars</option>
+									<option value="5-cars">5 Cars</option>
+									<option value="6-cars">6 Cars</option>
+									<option value="7-cars">7 Cars</option>
+									<option value="8-cars">8 Cars</option>
+									<option value="9-cars">9 Cars</option>
+									<option value="10-cars">10 Cars</option>
+									<option value="more-than-10-cars">More Than 10 Cars</option>
+								</select>
+							</p>
+						</div>
+					</div>
+					<div class="row" th:field="entry : *{sessionDaysAndTimes}">
+						<div class="col-md-2 offset-md-4 col-sm-5 offset-sm-2">
+							<label>
+								<input th:field="*{entry.key}" type="checkbox" name="sessionmoment" value="Every-Monday">
+								<strong>Every Monday</strong>
+							</label>
+						</div>
+						<div class="col-md-6 col-sm-5">
+							<label>
+								<strong>At: </strong><input type="time" 
+								th:field="*{entry.value}" 
+								id="mondayTimepicker" onchange=""  required ="required">
+							</label>
+						</div>
+						<div class="col-md-2 offset-md-4 col-sm-5 offset-sm-2">
+							<label>
+								<input  th:field="*{entry.key}" type="checkbox" name="sessionmoment" value="Every-Tuesday">
+								<strong>Every Tuesday</strong>
+							</label>
+						</div>
+						<div class="col-md-6 col-sm-5">
+							<label>
+								<strong>At: </strong><input type="time" 
+								th:field="*{entry.value}" 
+								id="tuesdayTimepicker" onchange=""  required ="required">
+							</label>
+						</div>
+						<div class="col-md-2 offset-md-4 col-sm-5 offset-sm-2">
+							<label>
+								<input  th:field="*{entry.key}" type="checkbox" name="surveymoment" value="Monday">
+								<strong>Every Wednesday</strong>
+							</label>
+						</div>
+						<div class="col-md-6 col-sm-5">
+							<label>
+								<strong>At: </strong><input type="time" 
+								th:field="*{entry.value}" 
+								id="wednesdayTimepicker" onchange=""  required ="required">
+							</label>
+						</div>
+						<div class="col-md-2 offset-md-4 col-sm-5 offset-sm-2">
+							<label>
+								<input  th:field="*{entry.key}" type="checkbox" name="surveymoment" value="Tuesday">
+								<strong>Every Thursday</strong>
+							</label>
+						</div>
+						<div class="col-md-6 col-sm-5">
+							<label>
+								<strong>At: </strong><input type="time" 
+								th:field="*{entry.value}" 
+								id="thursdayTimepicker" onchange=""  required ="required">
+							</label>
+						</div>
+						<div class="col-md-2 offset-md-4 col-sm-5 offset-sm-2">
+							<label>
+								<input  th:field="*{entry.key}" type="checkbox" name="surveymoment" value="Wednesday">
+								<strong>Every Friday</strong>
+							</label>
+						</div>
+						<div class="col-md-6 col-sm-5">
+							<label>
+								<strong>At: </strong><input type="time" 
+								th:field="*{entry.value}" 
+								id="fridayTimepicker" onchange=""  required ="required">
+							</label>
+						</div>
+						<div class="col-md-2 offset-md-4 col-sm-5 offset-sm-2">
+							<label>
+								<input  th:field="*{entry.key}" type="checkbox" name="surveymoment" value="Thursday">
+								<strong>Every Surtaday</strong>
+							</label>
+						</div>
+						<div class="col-md-6 col-sm-5">
+							<label>
+								<strong>At: </strong><input type="time" 
+								th:field="*{entry.value}" 
+								id="surtadayTimepicker" onchange=""  required ="required">
+							</label>
+						</div>
+						<div class="col-md-2 offset-md-4 col-sm-5 offset-sm-2">
+							<label>
+								<input  th:field="*{entry.key}" type="checkbox" name="surveymoment" value="Friday">
+								<strong>Every Sunday</strong>
+							</label>
+						</div>
+						<div class="col-md-6 col-sm-5">
+							<label>
+								<strong>At: </strong><input type="time" 
+								th:field="*{entry.value}" 
+								id="sundayTimepicker" onchange=""  required ="required">
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8 offset-md-4 col-sm-10 offset-sm-2">
+							<label id="address" for="addressTextArea"><strong>Address</strong></label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8 offset-md-4 col-sm-10 offset-sm-2">
+							<textarea rows="5" cols="45" th:field="*{sessionAddress}" id="addressTextArea"  required ="required"> </textarea>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-1 offset-md-4 col-sm-1 offset-sm-2">
+							<input style="background-color:blue;color:white;" 
+							type="submit" name="submit_button" value="Submit"
+							required ="required">
+						</div>
+					</div>
+				</form>
+			</fieldset>
+		</div>
+	</body>
+	<script src="C:\Users\Test\OneDrive\Documents\My-God's-Path-On-Earth\mycarismyreflection\mycarismyreflection\src\main\resources\static\js\jquery-ui-1.12.1\external\jquery\jquery.js"
+	th:src="@{/js/jquery-ui-1.12.1/external/jquery/jquery.js}">
+	</script>
+	<script src="C:\Users\Test\OneDrive\Documents\My-God's-Path-On-Earth\mycarismyreflection\mycarismyreflection\src\main\resources\static\js\jquery-ui-1.12.1\jquery-ui.js"
+	th:src="@{/js/jquery-ui-1.12.1/jquery-ui.js}">
+	</script>
+	<script>
+		$("document").ready(function(){
+
+			$( "#datepicker" ).datepicker();
+			$("#Incorrect_Reqeust_Div").slideToggle(15000);
+			
+			
+		});
+		
+	</script>
+</html>

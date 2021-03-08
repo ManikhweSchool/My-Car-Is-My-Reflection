@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="ISO-8859-1">
+	    <link href="C:\Users\Test\OneDrive\Documents\My-God's-Path-On-Earth\mycarismyreflection\mycarismyreflection\src\main\resources\static\css\bootstrap-4.3.1-dist\css\bootstrap.min.css"
+		th:href="@{/css/bootstrap-4.3.1-dist/css/bootstrap.min.css}" rel = "stylesheet"></link>
+	    <link href="C:\Users\Test\OneDrive\Documents\My-God's-Path-On-Earth\mycarismyreflection\mycarismyreflection\src\main\resources\static\css\style.css"
+		rel="stylesheet" th:href="@{/css/style.css}"></link>
+        <title>About</title>
+    </head>
+    <body>
+		<div class = "container-fluid">
+			<div class="row">
+				<div class = "col-md-12">
+		             <ul id = "Header_Items">
+		             	<li class = "Header_Item"><a href = "index.html" th:href = "@{/index}" class = "Header_Link">Home</a></li>
+		             	<li class = "Header_Item"><a href = "#" id="active_page" th:href = "@{/payments}" class = "Header_Link">Payments</a></li>				
+			            <li class = "Header_Item"><a href = "Testimonials.html" id="testimonials" th:href = "@{/testimonials}" class = "Header_Link">View Previous Work</a></li>
+			            <li class = "Header_Item"><a href = "Contact.html" th:href = "@{/contact}" class = "Header_Link">Contacts Us</a></li>
+			            <li class = "Header_Item"><a href = "www.myhomeismyreflection.co.za" class = "Header_Link">Home Services</a></li>
+		            </ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-sm-11 offset-sm-1 mt-5 mr-0">
+					<h3 style="color:green"><strong>About Company</strong></h3>
+				</div>
+				<div class="col-md-3 col-sm-11 offset-sm-1 mt-5 mx-5">
+					<h3 style="color:green"><strong>Company Services</strong></h3>
+				</div>
+				<div class="col-md-3 col-sm-11 offset-sm-1 mt-5 ml-0">
+					<h3 style="color:green"><strong>Payments & Charges</strong></h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-sm-11 offset-sm-1 mt-3 mr-0">
+					<h5>
+						My Car Is My Reflection PTY(LTD) is a 
+						company that is dedicated to keeping your 
+						vehicle(s) as neat as possible. The company
+						is actually a <strong style="color:green">
+						24/7 mobile car wash </strong>particularly
+						made for people living around <strong style="color:green">
+						Durban</strong>. You can 
+						request a car wash at any point in time by filling 
+						in the <a href="index.html" th:href="@{/index}"
+						style="color:black">form</a> that way we can come over to 
+						clean any number of vehicles you want us to. 
+						
+					</h5> 
+				</div>
+				<div class="col-md-3 col-sm-11 offset-sm-1 mt-3 mx-5">
+					<h5>
+						You can either choose a <strong style="color:green">once off or a recurring deal 
+						</strong>with us. On the once off deal, you can request and 
+						then we come over and clean your vehicle(s) only 
+						once on the day and time of choice. On the recurring
+						deal however, you can request and then we come over 
+						and clean your vehicle(s) every week day(s) and 
+						time(s) of choice.
+					</h5>
+				</div>
+				<div class="col-md-3 col-sm-11 offset-sm-1 mt-3 ml-0">
+					<h5>
+						In terms of charges and payments, we believe
+						customer satisfactory is the number one thing.
+						That is why, we start by doing the job first 
+						and then afterwards we charge the customer.
+						However, we charge per vehicle. All private cars
+						cost <strong style="color:green">R150 each </strong>
+						and trucks on the other hand have a different 
+						price, which is 
+						<strong style="color:green">R200 each</strong>.
+					</h5>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>
